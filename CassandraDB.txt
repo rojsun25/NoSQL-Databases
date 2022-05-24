@@ -1,0 +1,123 @@
+---------CQLSH: -----CREATE TABLE
+
+CREATE KEYSPACE APPLE WITH REPLICATION= {'class':  'SimpleStrategy','replication_factor': 1 };
+
+CREATE Table APPLE.iphone ( 
+categoryId int, model_name varchar, specs map<text,text>,
+storage_GB list<int>, memory varchar, released_year int,
+starting_price float, market_available varchar, rating float, 
+PRIMARY KEY(categoryId, model_name, released_year));
+
+
+--------------Insert records:
+
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (1,'iphone',{'screen_size':'3.5','weight':'135gm'},2007,[4,8,16],'128MB',499,'No',7.8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (1,'3G',{'screen_size':'3.5','weight':'133gm'},2008,[8,16],'128MB',499,'No',7.9);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (1,'3GS',{'screen_size':'3.5','weight':'135gm'},2009,[8,16,32],'256MB',599,'No',7);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (2,'4',{'screen_size':'3.5','weight':'137gm'},2010,[8,16,32],'512MB',649,'No',6.8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (2,'4S',{'screen_size':'3.5','weight':'140gm'},2011,[8,16,32,64],'512MB',649,'No',7.2);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (2,'5',{'screen_size':'4','weight':'112gm'},2012,[16,32,64],'1GB',649,'No',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'5C',{'screen_size':'4','weight':'132gm'},2013,[8,16,32],'1GB',549,'Yes',6.4);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'5S',{'screen_size':'4','weight':'112gm'},2013,[16,32,64],'1GB',649,'Yes',9);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'6',{'screen_size':'4.7','weight':'142gm'},2014,[16,64,128],'1GB',649,'Yes',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'6Plus',{'screen_size':'5.5','weight':'192gm'},2014,[16,64,128],'1GB',749,'Yes',7.5);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'6S',{'screen_size':'4.7','weight':'143gm'},2015,[16,64,128],'2GB',649,'Yes',9);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'6SPlus',{'screen_size':'5.5','weight':'192gm'},2015,[16,64,128],'2GB',749,'Yes',9);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'SE',{'screen_size':'4','weight':'113gm'},2016,[32,64,128],'1GB',399,'Yes',8.5);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'7',{'screen_size':'4.7','weight':'138gm'},2016,[32,128],'2GB',649,'Yes',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'7Plus',{'screen_size':'5.5','weight':'188gm'},2016,[32,128],'3GB',769,'Yes',8.5);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'8',{'screen_size':'4.7','weight':'148gm'},2017,[64,128],'2GB',699,'Yes',8.5);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'8Plus',{'screen_size':'5.5','weight':'202gm'},2017,[64,128],'3GB',799,'Yes',8.7);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'X',{'screen_size':'5.8','weight':'174gm'},2017,[64,256],'3GB',999,'Yes',9);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'XR',{'screen_size':'6.1','weight':'194gm'},2018,[64,128],'3GB',749,'Yes',7);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'XS',{'screen_size':'5.8','weight':'177gm'},2018,[64,256,512],'3GB',999,'Yes',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (7,'XSMAX',{'screen_size':'6.5','weight':'208gm'},2018,[16,64,128],'3GB',1099,'Yes',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (6,'11',{'screen_size':'6.1','weight':'194gm'},2019,[64,128,256],'4GB',699,'Yes',9.3);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'11PRO',{'screen_size':'5.8','weight':'188gm'},2019,[64,256,512],'4GB',999,'Yes',8.5);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (7,'11PROMAX',{'screen_size':'6.5','weight':'226gm'},2019,[64,256,512],'4GB',1099,'Yes',8.8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'SE2',{'screen_size':'4.7','weight':'148gm'},2020,[32,64,128],'4GB',399,'Yes',7.6);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'12mini',{'screen_size':'5.4','weight':'135gm'},2020,[64,128,256],'4GB',699,'Yes',7.4);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (6,'12',{'screen_size':'6.1','weight':'164gm'},2020,[64,128,256],'4GB',799,'Yes',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'12PRO',{'screen_size':'6.1','weight':'189gm'},2020,[128,256,512],'6GB',999,'Yes',8.3);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (7,'12PROMAX',{'screen_size':'6.7','weight':'228gm'},2020,[128,256,512],'6GB',1099,'Yes',8);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (4,'13mini',{'screen_size':'5.4','weight':'141gm'},2021,[128,256,512],'4GB',699,'Yes',7.6);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (6,'13',{'screen_size':'6.1','weight':'174gm'},2021,[128,256,512],'4GB',799,'Yes',7.9);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (5,'13PRO',{'screen_size':'6.1','weight':'204gm'},2021,[128,256,512,1024],'6GB',999,'Yes',9.4);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (7,'13PROMAX',{'screen_size':'6.7','weight':'240gm'},2021,[128,256,512,1024],'6GB',1099,'Yes',9.4);
+INSERT INTO APPLE.iphone (categoryId,model_name,specs,released_year,storage_GB,memory,starting_price,market_available,rating) VALUES (3,'SE3',{'screen_size':'4.7','weight':'144gm'},2022,[64,128,256],'4GB',429,'Yes',7.7);
+
+
+-----------Aggregation functions:
+
+	SELECT * from APPLE.iphone;
+	
+	Select count(*) from APPLE.iphone;
+	
+Query 1:The aim is to find out the highest and lowest prices for phones launched over time.
+	
+	select MIN(starting_price) as Min_price,MAX(starting_price) as max_price, AVG(starting_price) as avg_price from APPLE.iphone;
+	
+	Aggregate function is used to calculate the min(), max() and avg() values of the phones price from the data.
+
+Query 2: Filter the list of all the phone models released between the years 2010 and 2020 and its specifications.
+	
+	SELECT model_name , specs, memory , starting_price as PRICE_in_usd from APPLE.iphone WHERE released_year >=2010 and released_year <= 2020 ALLOW FILTERING;
+	
+	WHERE clause is used to filter the specific data, satisfy the condition and returns the desired output. 
+	The logical operators greater than or equal to (>=) and lesser than (<=) or equal to is used to fetch the phones released during the period.
+
+Query 3: To Perform sorting in ascending & descending order by their Model Name.
+	
+	SELECT model_name, memory, storage_GB as storage_in_gb, starting_price from APPLE.iphone where categoryId=3 ORDER BY model_name ASC;
+	SELECT model_name, memory, storage_GB as storage_in_gb, starting_price from APPLE.iphone where categoryId=3 ORDER BY model_name DESC;
+
+	Sorting is accomplished by using the ORDER BY clause on the clustering key within a partition. 
+
+Query 4: A customer who would like to buy the iphone ranges from  $700 to $1000, the screen size should be greater than '6.1 inches'. Shortlist a variety of models.
+	
+		 SELECT * from APPLE.iphone WHERE starting_price>= 700 and starting_price <= 1000 and specs contains '6.1' and released_year >2018 and categoryId = 6 ALLOW FILTERING;
+   
+Query 5: Rename the column name ‘categoryId’ to ‘category_id’.
+    
+		ALTER TABLE APPLE.iphone RENAME categoryId to category_id;
+		SELECT category_id from APPLE.iphone LIMIT 10;
+	
+		ALTER command is used to edit the column name in the datastore. on searching the specs column, figure displays an error. on Selecting specification it return the data. Thus old column name no longer available.
+
+Query 6: APPLE has stopped manufacturing the '8' rated model iphone 7 phone once iphone 8 launched. iphone 7 model is pushed out of the market and sold out completely. Mark the price range to 0 and stock availablity to 'No'.
+ 
+		UPDATE APPLE.iphone SET starting_price = 0, market_available = 'No' WHERE model_name='7' and released_year= 2016 and category_id = 4 IF rating=8;
+	
+		SELECT model_name, starting_price, market_available, rating  from APPLE.iphone WHERE model_name = '7' ALLOW FILTERING;
+		If statement checks the condition only Updates the price to zero and the availability to 'No'. Update command is used to replace the existing data with the latest data
+
+Query 7: Some specifications were newly introduced from the iphone 8PLUS model, such as double-triple backtap , connect SIRI using apps and phoneLock with FaceId. 
+
+	UPDATE APPLE.iphone SET specs = specs + {'Backtap':'double-triple','SIRI':'Connect Apps','phonelock':'FaceID'} where model_name = '8Plus' and category_id = 3 and released_year = 2017; 
+	
+	SELECT category_id, model_name, released_year, specs from APPLE.iphone where model_name = '8Plus' ALLOW FILTERING;
+	In Figure , this Query updated the additional features using UPDATE command to make the new entries into the 8PLUS specifications in the Map datatype.
+
+Query 8: An iphone 11 price has been reduced due to the new model released, the organisation decided to remove the 64GB and 128GB storage and price set to 599.
+
+	SELECT 
+	
+	Update APPLE.iphone SET starting_price = 599, storage_GB = storage_GB - [64,128] WHERE model_name = '11' and released_year=2019 and category_id = 6 IF EXISTS;
+	
+	SELECT category_id, model_name, storage_GB, starting_price, released_year from APPLE.iphone WHERE model_name = '11' ALLOW FILTERING;
+
+	In this Query, If model 11 exists, the UPDATE command will edit the LIST Datatype i.e. remove the storage 64GB and 128GB and move the starting price to 599.
+
+Aim:To extract the data from multiple rows in the clustering keys column datastore to find the best iphone with the screen size '6.1' released after 2018 with highest rating and not more than 1000 usd.
+
+Query 9: Figures displays the LIMIT command is used to list the top 10 rows. 
+         
+		 SELECT model_name, starting_price, released_year,memory, specs from APPLE.iphone WHERE rating>7 and specs contains '6.1' LIMIT 5 ALLOW FILTERING;
+
+		
+Query 10: From the category 5 to 7 , filter the best model with rating greater than 8.5 released recently.
+		
+		SELECT  model_name,specs,memory, starting_price,released_year  from APPLE.iphone WHERE category_id IN (5,6,7) AND  market_available IN ('Yes') AND rating > 8.5 ALLOW FILTERING;
+	
+		Out of all the fetched models 13PRO is chosen as the best phone with memory 6GB and highest rating '9.4' over all the phones.
+

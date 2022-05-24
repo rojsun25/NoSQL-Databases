@@ -1,0 +1,47 @@
+{
+"$schema": "http://json-schema.org/draft-06/schema#",
+"$id": "http://example.com/hackathonenrollment.schema.json",
+"title": "Hackathon Enrollment",
+"description": "Students from Various Departments Enrolling for Hackathon Event",
+"type": "object",
+"properties": {
+"Student Details" : { "description" : "Total students Enrolled details",  "type" : "array", "items": { "type" : "object" ,"properties": {
+                "Student ID" : { "description" : "Unique Id for the   Students", "type" : "string" },
+                "Course" : { "description" : "Degree and studying Course", "type" : "string" },
+                "Participated": {"description": "Previosuly participated in the event", "type": "boolean"},
+				"Department" :{ "description" : "Department name", "type" : "string" } ,
+				"Year": { "description" : "Studying year", "type" : "string" },
+				"Degree": { "description" : "Any previous Education, if Applicable", "type" : "string" },
+				"Full Name": { "description": "Full name of the student", "type": "string"},
+				"Sex": { "description": "students identity", "type": "string"},
+				"DOB": { "description" : "Date of Birth", "type" : "string", "pattern": "-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?" },
+				"Phone No": { "description": "Personal Contact Number", "type": "integer",  "minlength" :10},
+				"Email":{ "description": "Personal Email address", "type": "string","pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", "maximum":35},
+                "Address": { "description": "Living Address", "type": "string", "maximum": 200 },
+ 				"Address2": { "description": "Permanent Address", "type": "string","optional": true},
+                "City": { "description": "Current City", "type": "string", "minimum": 3},
+                "Postcode":{"description": "Postal address", "type": "string", "maximum": 8},                 
+				"Skills":{ "description" : "Degree and studying Course", "type" : "object",
+				"Certification" :{ "description" : "Essential  Certification required", "type": "array",
+					"items" : {
+						"Certificate Name": { "description": "Full name of the student", "type": "string"},
+						"Certificate ID": { "description": "Personal Contact Number", "type": "string"},
+						"Level":{ "description": "Certification category", "type": "string"}}
+					},
+					"Technology" :{ "description" : "Hands-on Knowledge", "type": "array",
+					"items" : { "type": "string" },"minItems": 1,"uniqueItems": true
+					}
+				},
+				"Experience":{ "description" : "Details of Work Experience, if any", "type": "array",
+					"items" : {  
+						"Role" : { "description" : "Job role & work nature", "type": "string", "maximum": 20},
+						"Organisation" : {"description": "Comapany name", "type": "string"},
+						"Years" : {"description": "Minimum of experience in years", "type": "integer","minimum" : 0 },
+						"Months" : {"description": "Minimum of experience in months", "type": "integer",  "minimum" : 0 }
+					}
+				}	
+				},"required": ["Student ID", "Course", "Year","Degree","Full Name","Phone No","Email","City", "Postcode"],
+				}
+			}
+}
+}

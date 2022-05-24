@@ -1,0 +1,178 @@
+----------Create Nodes and properties
+
+CREATE (st:storehouse {name: 'Subwayhouse'}),(:supplier {name: 'Swsupplier', place: 'London'}), 
+(:shop {name: 'Subway', place: 'London'}),(:staff {name: 'Employer'}), (:Delivery {name: 'Delivery'} ), (:staff {name: 'John', BikeNo : 'KPKP01', Phone:7826045623}), 
+(:customer {name: 'Jacob', Age: '25'}), (:Packers {name: 'Packing'}), (:Products {name: 'Products'}),(:Food {name: 'Food'}), (:Drinks {name: 'Drinks'}), 
+(:Pepsi {name: 'Pepsi', type: 'gas'}), (:Coke {name: 'Coke', type: 'gas'}),  (:Fanta {name: 'Fanta', type: 'gas'}), (:Products {name: 'Sprite', type: 'gas'}),
+(:Pasta {name: 'Pasta', type:'Hot'}), (:Burger {name: 'Burger', type:'Hot'}), (:Pancake {name: 'Pancake', type:'Hot'}), (:Pizza {name: 'Pizza', type:'Hot'}), 
+ (:staff {name: 'Jack'}), (:staff {name: 'Johny'}), CREATE (:customer {name: 'Robin', Age: '26'}), (:customer {name: 'Rose', Age: '30' }), 
+(:customer {name: 'Harry', Age: '32'}), (:customer {name: 'Potter', Age: '33'}) 
+
+-------------Build relationships(understandable way)
+MATCH (st:storehouse {name: 'Subwayhouse'}),(su:supplier {name: 'Swsupplier'}),(sh:shop {name: 'Subway'}), (s:staff {name: 'Employer'})
+CREATE(st)-[:distributesto]->(su)-[:suppliesto]->(sh)-[:assistants]->(s)
+
+MATCH (a:staff { name : 'Employer' }), (b:Delivery { name : 'Delivery' }) CREATE (a)-[:worksin]->(b)
+MATCH (a:Delivery { name : 'Delivery' }), (b:staff { name : 'John' }) CREATE (a)-[:belongsto]->(b)
+MATCH (a:staff { name : 'John' }), (b:customer { name : 'Jacob' }) CREATE (a)-[:deliversto]->(b)
+
+MATCH (a:staff { name : 'Employer' }), (b:Packers { name : 'Packing' }) CREATE (a)-[:worksin]->(b)
+MATCH (a:Packers { name : 'Packing' }), (b:staff { name : 'Jack' }) CREATE (a)-[:belongsto]->(b)
+MATCH (a:Packers { name : 'Packing' }), (b:staff { name : 'Johny' }) CREATE (a)-[:belongsto]->(b)
+
+MATCH (a:staff { name : 'Jack' }), (b:customer { name : 'Robin' }) CREATE (a)-[:serviceto]->(b)
+MATCH (a:staff { name : 'Jack' }), (b:customer { name : 'Rose' }) CREATE (a)-[:serviceto]->(b)
+MATCH (a:customer { name : 'Robin' }), (b:customer { name : 'Rose' }) CREATE (a)-[:friend {name: 'friend'}]->(b)
+
+MATCH (a:staff { name : 'Johny' }), (b:customer { name : 'Harry' }) CREATE (a)-[:serviceto]->(b)
+MATCH (a:staff { name : 'Johny' }), (b:customer { name : 'Potter' }) CREATE (a)-[:serviceto]->(b)
+MATCH (a:customer { name : 'Harry' }), (b:customer { name : 'Rose' }) CREATE (a)-[:know {name: "know"}]->(b)
+MATCH (a:customer { name : 'Robin' }), (b:customer { name : 'Harry' }) CREATE (a)-[:workswith]->(b)
+
+MATCH (a:shop { name : 'Subway' }), (b:Products { name : 'Products' }) CREATE (a)-[:has]->(b)
+
+MATCH (a:Products { name : 'Products' }), (b:Food { name : 'Food' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Food { name : 'Food' }), (b:Pizza { name : 'Pizza' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Food { name : 'Food' }), (b:Pasta { name : 'Pasta' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Food { name : 'Food' }), (b:Burger { name : 'Burger' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Food { name : 'Food' }), (b:Pancake { name : 'Pancake' }) CREATE (a)-[:contains]->(b)
+
+MATCH (a:Products { name : 'Products' }), (b:Drinks { name : 'Drinks' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Drinks { name : 'Drinks' }), (b:Pepsi { name : 'Pepsi' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Drinks { name : 'Drinks' }), (b:Coke { name : 'Coke' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Drinks { name : 'Drinks' }), (b:Fanta { name : 'Fanta' }) CREATE (a)-[:contains]->(b)
+MATCH (a:Drinks { name : 'Drinks' }), (b:Sprite { name : 'Sprite' }) CREATE (a)-[:contains]->(b)
+
+
+MATCH (a:customer { name : 'Robin' }), (b:Pizza { name : 'Pizza' }) CREATE (a)-[:ordered]->(b)
+MATCH (a:customer { name : 'Robin' }), (b:Coke { name : 'Coke' }) CREATE (a)-[:ordered]->(b)
+MATCH (a:customer { name : 'Rose' }), (b:Coke { name : 'Coke' }) CREATE (a)-[:ordered]->(b)
+MATCH (a:customer { name : 'Rose' }), (b:Fanta { name : 'Fanta' }) CREATE (a)-[:ordered]->(b)
+MATCH (a:customer { name : 'Harry' }), (b:Burger { name : 'Burger' }) CREATE (a)-[:ordered]->(b)
+MATCH (a:customer { name : 'Potter' }), (b:Pepsi { name : 'Pepsi' }) CREATE (a)-[:ordered]->(b)
+MATCH (a:customer { name : 'Potter' }), (b:Pasta { name : 'Pasta' }) CREATE (a)-[:ordered]->(b)
+
+
+----------aggregate functions
+
+Query1: ok
+Find out the customers who took Coke, Pizza and Burger.
+
+MATCH (a:customer )-[ordered]-(b:Coke {name: 'Coke'})
+Return a.name as Customer_Name,b.name as Product_Name
+
+
+MATCH (a:customer )-[ordered]-(b:Pizza {name: 'Pizza'})
+Return a.name as Customer_Name,b.name as Product_Name
+
+MATCH (a:customer )-[ordered]-(b:Burger {name: 'Burger'})
+Return a.name as Customer_Name,b.name as Product_Name
+
+From the Figure , , ,. It shows the who ordered Displays the 
+
+Query 2: ok
+
+Roj, a new customer, came into the shop and placed an order for Coke.  Potter is a regular customer at the shop and a friend of Roj. 
+Roj and Potter are both waiting for their orders. Roj had also been serviced by the staff. Discuss about the relationship.
+
+The MERGE is a command helps to find or create a subgraphs and relationship between the nodes 
+
+MATCH (s:staff)-[serviceto]-(cu:customer {name: 'Potter'})
+Return s.name as Server_Name
+
+Johny was the member of the staff who assisted Potter. The same staff also serves a new customer to Roj.
+
+MATCH (pa:Packers),(cu:customer),(s:staff {name:"Johny"}),(co:Products {name: "Coke"})
+MERGE (s)-[:serviceto]->(cus:customer{name:"Roj"})-[:ordered]->(co)
+Return pa,s,cu,cus,co
+
+
+
+MATCH(cus:customer{name:"Roj"}),(cu:customer {name:"Potter"})
+CREATE (cu)-[r:friend {name : 'friend'}]->(cus)
+return r,cu,cus
+
+MATCH (pa:Packers),(cu:customer),(s:staff {name:"Johny"}),(co:Products {name: "Coke"}),
+(cus:customer{name: "Roj"}),(cu:customer {name:"Potter"})
+RETURN pa,s,cu,cus,co
+
+The total relationship of Roj is established in the above query in figure.
+
+Query 3: ok
+
+In the same city, multiple branches were opened. As a result, the organisation would like to upgrade the branch unique id and code for all sub branches.
+
+MATCH (shop)-[:has]-(Products)
+WITH shop
+WHERE shop.name= "Subway"
+SET shop.code = '1234', shop.branch_id = "4321"
+RETURN shop
+
+Utilizing the SET Command, new data's such as properties can be added to a node. Branch Id and branch code is updated in the database. Where clause defined to extract the certain data with the specific condition.
+Here, Additional details are added to the profile.
+
+Query 4: ok
+
+Figure out the customers taken care by the staffs in Packers department at the shop.
+
+MATCH (staff)-[worksin]-(pa:packers)
+WITH staff
+MATCH (staff)-[:serviceto]-(customer)
+WITH staff,count(customer) AS Customer_Count
+WHERE Customer_Count > 0
+RETURN staff as Staff,Customer_Count
+
+The WITH clause is useful in this case to specify the reference to the other half of the query's node. 
+Using WITH in this query, the staff in the packers department were able to get onto the next part. 
+A count() function command is used to measure the number of customers. The number of employees who dealt with customers more than 0 is shown as an outcome.
+
+Query 5: ok
+
+Display the customer Who ordered the products in the shop whose name begins with R or H and ends with n.
+
+MATCH (a:customer)
+WHERE a.name STARTS WITH 'R' OR 
+a.name STARTS WITH 'J' AND
+a.customer ENDS WITH 'n'
+RETURN a.name AS CUSTOMER_NAMES
+
+The strings operations STARTS WITH and ENDS WITH are used to get the string's beginning and ending characters. To apply the conditions and query for them, the logical operators AND and OR are employed. 
+Customers' names begin with either 'R' or 'H,' although ending with 'n' or shown in this query.
+
+
+Query 6: ok
+
+Figure out the customers who all are friends and known each other. 
+
+MATCH (a:customer)-[f:friend]->(b:customer)
+RETURN a.name as Name1,b.name as Name2,f.name as Relationship
+UNION
+MATCH (a:customer)-[k:know]->(b:customer)
+RETURN a.name as Name1,b.name as Name2,k.name as Relationship
+
+MATCH (person1)-[:knows|friend]->(person2)
+return person1,person2 
+
+Using the UNION Function it merges all the data and retrun the the data 
+
+Query 7: ok
+
+Show the Customers aged between 29 and 35 who ordered in the shop.
+
+MATCH (a:staff)-[:serviceto]-(b:customer)
+WHERE b.Age >29 AND b.Age <= 35
+RETURN b.name AS CUSTOMER_NAME,b.Age
+
+The operators greater and less than or equal to were used in this query to capture customers in the shop who ordered between the ages of 29 and 35 but its not more as well.
+
+Query 8: ok
+
+Display the next 2 hops away from storehouse of the nodes and relationship.
+
+MATCH (st:storehouse)-[*1..3]-(shop)
+RETURN DISTINCT st,shop
+
+The following connections and nodes are three hops away from the storehouse: 
+1. Storehouse delivers materials and products to suppliers, Swsupplier
+2. The Swsupplier delivers the goods to the shop, Subway.
+3.Subway hires people and stocks merchandise in their stores.

@@ -1,0 +1,274 @@
+{
+"Student Details" :
+[
+{
+"Student ID": "STUD0001",
+"Course": "MSc. Big Data",
+"Participated": true,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Electronics and Communincation Engineering",
+"Full Name" : "Madison Lee",
+"Sex": "Male",
+"DOB": "25-05-1996",
+"Phone No": 7878787878,
+"Email" : "stud0001@gre.ac.uk",
+"City" : "London",
+"Postcode": "SE10 9ED",
+"Skills":
+{
+"Certification":
+[ { "Certificate Name": "Microsoft Data Fundamentals",
+"Certificate ID": "DP900",
+"Level": "Basic"},
+{ "Certificate Name":
+"Microsoft Azure Fundamentals ",
+"Certificate ID": "AZ900",
+"Level": "Basic"}
+],
+"Technology":
+[ "PHP", "ESP", "LINUX", "BATCH-OPS", ".NET" ]
+},
+"Experience":
+[{"Role": "System Admin","Organisation": "ASOS", "Years": 3, "Months": 2}]
+},
+{
+"Student ID": "STUD0002",
+"Course": "MSc. Big Data",
+"Participated": false,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Electrical and Electronics Engineering",
+"Full Name" : "Madona singh",
+"DOB": "25-09-1994",
+"Phone No": 7373737373,
+"Email" : "stud0002@gre.ac.uk",
+"City" : "London",
+"Postcode": "SE2 4ED",
+"Skills":
+{
+"Certification":
+[ { "Certificate Name": "Microsoft Data Fundamentals",
+"Certificate ID": "DP900",
+"Level": "Basic"}
+],
+"Technology":
+[ "PHP"]
+},
+},
+{
+"Student ID": "STUD0333",
+"Course": "MSc. Data Science",
+"Participated": false,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Computer Science Engineering",
+"Full Name" : "Hyder Ali",
+"Sex": "Male",
+"DOB": "25-05-1996",
+"Phone No": 7979797979,
+"Email" : "stud0333@gre.ac.uk",
+"City" : "London",
+"Postcode": "SW13 96D",
+"Skills":
+{
+"Certification":
+[
+{ "Certificate Name":
+"Microsoft Azure Fundamentals ",
+"Certificate ID": "AZ900",
+"Level": "Basic"}
+],
+"Technology":
+[ "BATCH-OPS", ".NET" ]
+},
+"Experience":
+[{"Role": "System Admin","Organisation": "Sainsburys", "Years": 2, "Months": 1}]
+},
+{
+"Student ID": "STUD0022",
+"Course": "MSc. Cybersecurity",
+"Participated": true,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Electronics and Communincation Engineering",
+"Full Name" : "Christopher smith",
+"Sex": "Male",
+"DOB": "29-02-1992",
+"Phone No": 7777777756,
+"Email" : "stud0022@gre.ac.uk",
+"City" : "London",
+"Postcode": "SW11 3ND",
+"Skills":
+{
+"Technology":
+[ ".NET" ]
+},
+"Experience":
+[{"Role": "System Admin","Organisation": "TCS", "Years": 2, "Months": 2}]
+},
+{
+"Student ID": "STUD0011",
+"Course": "MSc. Big Data",
+"Participated": true,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Electronics and Communincation Engineering",
+"Full Name" : "Kyle Kale",
+"Sex": "Female",
+"DOB": "21-05-1990",
+"Phone No": 7215648975,
+"Email" : "stud0011@gre.ac.uk",
+"City" : "London",
+"Postcode": "SD34 2EW",
+"Skills":
+{
+"Certification":
+[
+{ "Certificate Name":
+"Microsoft Azure Fundamentals ",
+"Certificate ID": "AZ900",
+"Level": "Basic"}
+],
+"Technology":
+[ "PHP", "ESP",".NET" ]
+},
+"Experience":
+[{"Role": "Data Admin","Organisation": "Argos", "Years": 4, "Months": 2}]
+},
+{
+"Student ID": "STUD0023",
+"Course": "MSc. Cybersecurity",
+"Participated": true,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Electronics and Communincation Engineering",
+"Full Name" : "Chris jerico",
+"Sex": "Male",
+"DOB": "26-01-1990",
+"Phone No": 7123477441,
+"Email" : "stud0023@gre.ac.uk",
+"City" : "London",
+"Postcode": "SW10 3ND"
+},
+{
+"Student ID": "STUD0999",
+"Course": "MSc. Data Analytics",
+"Participated": false,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Mechanical Engineering",
+"Full Name" : "Madan Simmonds",
+"Sex": "Male",
+"DOB": "23-11-1983",
+"Phone No": 7665675856,
+"Email" : "stud0999@gre.ac.uk",
+"City" : "London",
+"Postcode": "SK2 32UED",
+"Skills":
+{
+"Certification":
+[ { "Certificate Name": "Microsoft Data Fundamentals",
+"Certificate ID": "DP900",
+"Level": "Basic"},
+{ "Certificate Name":
+"Microsoft Azure Fundamentals ",
+"Certificate ID": "AZ900",
+"Level": "Basic"}
+],
+"Technology":
+[ "ESP", "LINUX", "BATCH-OPS" ]
+},
+"Experience":
+[{"Role": "Data Engineer","Organisation": "ASOS", "Years": 5, "Months": 7}]
+},
+{
+"Student ID": "STUD0999",
+"Course": "MSc. Data Analytics",
+"Participated": false,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in Mechanical Engineering",
+"Full Name" : "Madan Simmonds",
+"Sex": "Male",
+"DOB": "23-11-1983",
+"Phone No": 7665066856,
+"Email" : "stud0999@gre.ac.uk",
+"City" : "London",
+"Postcode": "SK2 32UED",
+"Skills":
+{
+"Certification":
+[ { "Certificate Name": "Microsoft AI Fundamentals",
+"Certificate ID": "AI900",
+"Level": "Basic"},
+],
+"Technology":
+[ "ESP", "LINUX", "BATCH-OPS" ]
+},
+},
+{
+"Student ID": "STUD0033",
+"Course": "MSc. Data Science",
+"Participated": false,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in IT",
+"Full Name" : "Steve Smith",
+"Sex": "Male",
+"DOB": "02-06-1990",
+"Phone No": 7979797676,
+"Email" : "stud0033@gre.ac.uk",
+"City" : "London",
+"Postcode": "SE11 8ED",
+"Skills":
+{
+"Certification":
+[ { "Certificate Name": "Microsoft Data Fundamentals",
+"Certificate ID": "DP900",
+"Level": "Basic"},
+{ "Certificate Name":
+"Microsoft Azure AI Fundamentals ",
+"Certificate ID": "AI900",
+"Level": "Basic"}
+],
+"Technology":
+[ "Java", "C",".NET" ]
+},
+"Experience":
+[{"Role": "System Admin","Organisation": "Wipro", "Years": 7, "Months": 2}]
+},
+{
+"Student ID": "STUD0231",
+"Course": "MSc. Data Science",
+"Participated": false,
+"Department" : "Computing",
+"Year" : "First",
+"Degree" :"Bachelor in IT",
+"Full Name" : "Steve Smith",
+"Sex": "Male",
+"DOB": "02-09-1985",
+"Phone No": 7352768878,
+"Email" : "stud0231@gre.ac.uk",
+"City" : "London",
+"Postcode": "ST10 9DD",
+"Skills":
+{
+"Certification":
+[ { "Certificate Name": "Microsoft Data Fundamentals",
+"Certificate ID": "DP900",
+"Level": "Basic"},
+{ "Certificate Name":
+"Microsoft Azure AI Fundamentals ",
+"Certificate ID": "AI900",
+"Level": "Basic"}
+],
+"Technology":
+[ "Java"]
+},
+"Experience":
+[{"Role": "System Admin","Organisation": "HCL", "Years": 5, "Months": 4},
+{"Role": "Data Admin","Organisation": "TCS", "Years": 2, "Months": 4}]
+},
+]
+}
